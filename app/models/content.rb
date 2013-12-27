@@ -16,14 +16,18 @@ class Content
   def self.featured(&block)
     @data = []
     BubbleWrap::HTTP.get("http://dis.dev/featured") do |response|
-      #TODO No data or 500/404?
-      result_data = BW::JSON.parse(response.body.to_str)
+      if response.ok?
+        result_data = BW::JSON.parse(response.body.to_str)
 
-      result_data.each do |result|
-        @data << result["content"]["title"]
+        result_data.each do |result|
+          @data << result["content"]["title"]
+        end
+
+        puts "MSPX Content.featured results: #{@data.length}"
+      else
+        App.alert("Error connecting to the DiS API: #{response.error_message} status: #{response.status_description}")
       end
 
-      puts "MSPX Content.featured results: #{@data.length}"
       block.call(@data)
     end
 
