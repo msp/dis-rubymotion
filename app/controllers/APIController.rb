@@ -17,7 +17,7 @@ class APIController < UIViewController
     @search.when(UIControlEventTouchUpInside) do
       @search.enabled = false
 
-      Content.featured do |content|
+      Topic.social do |content|
         self.open_content(content) if content.length > 0
         @search.enabled = true
       end
@@ -25,6 +25,6 @@ class APIController < UIViewController
   end
 
   def open_content(content)
-    self.navigationController.pushViewController(FeaturedController.alloc.initWithContent(content), animated: true)
+    self.navigationController.pushViewController(TopicsController.alloc.initWithContent(content), animated: true)
   end
 end
