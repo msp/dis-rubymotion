@@ -2,12 +2,12 @@ class APIController < UIViewController
   def viewDidLoad
     super
 
-    self.title = "DIS API"
+    self.title = "DIS Home"
 
     self.view.backgroundColor = UIColor.whiteColor
 
     @search = UIButton.buttonWithType(UIButtonTypeRoundedRect)
-    @search.setTitle("Search", forState: UIControlStateNormal)
+    @search.setTitle("Open DiS", forState: UIControlStateNormal)
     @search.setTitle("Loading", forState: UIControlStateDisabled)
     @search.sizeToFit
     @search.center = CGPointMake(self.view.frame.size.width / 2, 40)

@@ -52,5 +52,7 @@ class FeaturedController < UIViewController
     alert.message = "#{self.content[indexPath.row]} tapped!"
     alert.addButtonWithTitle "OK"
     alert.show
+
+    self.navigationController.pushViewController(FeaturedItemController.alloc.initWithContent(self.content[indexPath.row]), animated: true)
   end
 end
