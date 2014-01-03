@@ -1,18 +1,20 @@
-class APIController < UIViewController
+class HomeController < UIViewController
+
+  def loadView
+    views = NSBundle.mainBundle.loadNibNamed("Home", owner: self, options: nil)
+    self.view = views[0]
+  end
+
   def viewDidLoad
     super
 
-    self.title = "DIS Home"
+    self.title = "DIS Forum Home"
 
-    self.view.backgroundColor = UIColor.whiteColor
+    @search = view.viewWithTag 1
+    @label = view.viewWithTag 2
 
-    @search = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @search.setTitle("Open DiS", forState: UIControlStateNormal)
     @search.setTitle("Loading", forState: UIControlStateDisabled)
-    @search.sizeToFit
-    @search.center = CGPointMake(self.view.frame.size.width / 2, 40)
-
-    self.view.addSubview @search
 
     @search.when(UIControlEventTouchUpInside) do
       @search.enabled = false
