@@ -1,6 +1,6 @@
 class Topic
 
-  PROPERTIES = [:leadin, :content]
+  PROPERTIES = [:id, :title, :content]
   PROPERTIES.each { |prop|
     attr_accessor prop
   }
@@ -20,8 +20,7 @@ class Topic
         result_data = BW::JSON.parse(response.body.to_str)
 
         result_data.each do |result|
-          #TODO init topic object instead
-          @data << result["topic"]["title"]
+          @data << Topic.new(id: result["topic"]["id"], title: result["topic"]["title"], content: result["topic"]["content_raw"])
         end
         puts "MSPX Topic.music results: #{@data.length}"
       else

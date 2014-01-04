@@ -20,13 +20,13 @@ class HomeController < UIViewController
       @search.enabled = false
 
       Topic.social do |content|
-        self.open_content(content) if content.length > 0
+        self.open(content) if content.length > 0
         @search.enabled = true
       end
     end
   end
 
-  def open_content(content)
+  def open(content)
     self.navigationController.pushViewController(TopicsController.alloc.initWithContent(content), animated: true)
   end
 end
