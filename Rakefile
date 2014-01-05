@@ -9,4 +9,8 @@ Bundler.require
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'DiS'
+
+  app.pods do
+    pod 'SVPullToRefresh'
+  end
 end
