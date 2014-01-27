@@ -12,7 +12,6 @@ class FeaturedController < UIViewController
     super
 
     new_frame = self.view.frame
-    #new_frame.size.height -= self.tabBarController.tabBar.bounds.size.height
     self.view.frame = new_frame
 
     self.title = "DiS Featured"
@@ -32,7 +31,7 @@ class FeaturedController < UIViewController
       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier: @reuseIdentifier)
     end
 
-    cell.textLabel.text = self.content[indexPath.row]
+    cell.textLabel.text = self.content[indexPath.row].title
 
     cell
   end
@@ -47,12 +46,6 @@ class FeaturedController < UIViewController
 
   def tableView(tableView, didSelectRowAtIndexPath: indexPath)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-    alert = UIAlertView.alloc.init
-    alert.message = "#{self.content[indexPath.row]} tapped!"
-    alert.addButtonWithTitle "OK"
-    alert.show
-
     self.navigationController.pushViewController(FeaturedItemController.alloc.initWithContent(self.content[indexPath.row]), animated: true)
   end
 end

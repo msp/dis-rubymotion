@@ -2,11 +2,24 @@ class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
-    @home_controller = HomeController.alloc.initWithNibName(nil, bundle:nil)
-    @navigation_controller = UINavigationController.alloc.initWithRootViewController(@home_controller)
+    @navigationController = UINavigationController.alloc.init
+    @navigationController.pushViewController(HomeController.controller,animated:false)
 
-    @window.rootViewController = @navigation_controller
+    @window.rootViewController = @navigationController
     @window.makeKeyAndVisible
-    true
+
+    if App::Persistence['authToken'].nil?
+      showWelcomeController
+    end
+
+    return true
+  end
+
+  def showWelcomeController
+    @welcomeController = WelcomeController.alloc.init
+    @welcomeNavigationController = UINavigationController.alloc.init
+    @welcomeNavigationController.pushViewController(@welcomeController, animated:false)
+
+    HomeController.controller.presentModalViewController(@welcomeNavigationController, animated:true)
   end
 end

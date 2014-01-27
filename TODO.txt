@@ -1,0 +1,25 @@
+TODO
+
+- Styling via Teacup (& Pixate?)
+- Some acceptance tests via Frank
+
+General
+
+http://rubymotion-wrappers.com
+http://bubblewrap.io
+
+Testing
+
+- http://calebcohoon.blogspot.co.uk/2012/06/test-rubymotion-apps-using-cucumber.html
+
+Auth
+
+- Make server https
+
+
+
+DONE
+
+Auth
+
+- http://lucatironi.github.io/tutorial/2013/05/05/ruby_rails_rubymotion_ios_app_authentication_devise_tutorial_part_one/

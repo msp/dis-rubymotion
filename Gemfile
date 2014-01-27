@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 gem "bubble-wrap"
 gem "cocoapods"
+gem "formotion"
 gem "motion-cocoapods"
+gem "motion-config-vars"

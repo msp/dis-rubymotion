@@ -15,7 +15,7 @@ class Topic
 
   def self.social(&block)
     @data = []
-    BubbleWrap::HTTP.get("http://dis.dev/community/boards/social.json") do |response|
+    BubbleWrap::HTTP.get("http://#{API_HOST}/community/boards/social.json") do |response|
       if response.ok?
         result_data = BW::JSON.parse(response.body.to_str)
 

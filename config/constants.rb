@@ -1,0 +1,1 @@
+API_HOST = ENV["HOST"] || "dis.dev"

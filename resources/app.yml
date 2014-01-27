@@ -1,0 +1,7 @@
+API_ENV:
+  development:
+    HOST: "dis.dev"
+  staging:
+    HOST: "disstg.herokuapp.com"
+  production:
+    HOST: "drownedinsound.com"

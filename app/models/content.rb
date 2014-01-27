@@ -1,6 +1,6 @@
 class Content
 
-  PROPERTIES = [:title]
+  PROPERTIES = [:title, :image_id, :content]
   PROPERTIES.each { |prop|
     attr_accessor prop
   }
@@ -15,12 +15,12 @@ class Content
 
   def self.featured(&block)
     @data = []
-    BubbleWrap::HTTP.get("http://dis.dev/featured") do |response|
+    BubbleWrap::HTTP.get("http://#{API_HOST}/featured") do |response|
       if response.ok?
         result_data = BW::JSON.parse(response.body.to_str)
 
         result_data.each do |result|
-          @data << result["content"]["title"]
+          @data << Content.new(title: result["content"]["title"], image_id: result["content"]["image_id"], content: result["content"]["content"])
         end
 
         puts "MSPX Content.featured results: #{@data.length}"
