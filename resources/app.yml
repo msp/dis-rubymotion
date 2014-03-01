@@ -1,6 +1,6 @@
 API_ENV:
   development:
-    HOST: "dis.dev"
+    HOST: "horus.local:3000"
   staging:
     HOST: "disstg.herokuapp.com"
   production:

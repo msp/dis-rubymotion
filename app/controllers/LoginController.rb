@@ -2,7 +2,7 @@ class LoginController < Formotion::FormController
 
   # curl --data "user_session[username]=polymorphic2&user_session[password]=bundle" http://dis.dev/sessions/create.json?
 
-  API_LOGIN_ENDPOINT = "http://dis.dev/sessions/create.json"
+  API_LOGIN_ENDPOINT = "http://#{API_HOST}/sessions/create.json"
 
   def init
     form = Formotion::Form.new({
