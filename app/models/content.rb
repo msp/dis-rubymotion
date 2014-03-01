@@ -20,7 +20,7 @@ class Content
         result_data = BW::JSON.parse(response.body.to_str)
 
         result_data.each do |result|
-          @data << Content.new(title: result["content"]["title"], image_id: result["content"]["image_id"], content: result["content"]["content"])
+          @data << Content.new(title: result["content"]["title"], image_id: result["content"]["image_id"], content: result["content"]["content_raw"])
         end
 
         puts "MSPX Content.featured results: #{@data.length}"
