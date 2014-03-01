@@ -6,3 +6,5 @@ resources/*.momd
 resources/*.storyboardc
 .idea
 social.json
+.DS_Store
+vendor/Pods
