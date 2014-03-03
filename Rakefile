@@ -10,8 +10,9 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'DiS'
 
-  app.device_family = :iphone
+  app.device_family = [:iphone, :ipad]
   app.interface_orientations = [:portrait]
+  app.deployment_target = "6.0"
 
   # app.codesign_certificate = 'iPhone Distribution: Radial Solutions Ltd'
   # The name of your personal distribution profile, from your keychain.
@@ -22,7 +23,7 @@ Motion::Project::App.setup do |app|
   # The bundle identifier, from step 4.
   # Exactly as you typed it then.
 
-  # app.provisioning_profile = '/data/development/rubymotion/ios/provisioning-profiles/DiS_Testing.mobileprovision'
+  # app.provisioning_profile = '/Users/msp/Library/MobileDevice/Provisioning Profiles/B1114485-A0C0-40B7-81C0-8EDFC3C39406.mobileprovision'
   # The filename and full path of your distribution provisioning profile.
   # The name is probably an enormous hex string.
   # From step 5.
