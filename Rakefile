@@ -23,7 +23,7 @@ Motion::Project::App.setup do |app|
   # The bundle identifier, from step 4.
   # Exactly as you typed it then.
 
-  # app.provisioning_profile = '/Users/msp/Library/MobileDevice/Provisioning Profiles/B1114485-A0C0-40B7-81C0-8EDFC3C39406.mobileprovision'
+  app.provisioning_profile = '/data/development/rubymotion/ios/provisioning-profiles/DiS_Testing.mobileprovision'
   # The filename and full path of your distribution provisioning profile.
   # The name is probably an enormous hex string.
   # From step 5.
